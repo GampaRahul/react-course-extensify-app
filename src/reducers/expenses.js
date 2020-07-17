@@ -3,14 +3,14 @@ const expenceReduserDefaultState = [];
 
 const expenceReduser = (state = expenceReduserDefaultState, action) => {
     switch (action.type) {
-        case 'ADD_EXPENCE':
+        case 'ADD_EXPENSE':
             return [
                 ...state,
-                action.expence
+                action.expense
             ];
-        case 'REMOVE_EXPENCE':
+        case 'REMOVE_EXPENSE':
             return state.filter((expence) => expence.id !== action.id); 
-        case 'EDIT_EXPENCE':
+        case 'EDIT_EXPENSE':
             return state.map((expence) =>{
                 if(expence.id === action.id){
                     return {

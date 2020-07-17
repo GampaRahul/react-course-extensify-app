@@ -71,3 +71,11 @@ export const startRemoveExpense = ({id} ={}) => {
         });
     };
 };
+
+export const startEditExpenses= (id, update) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).update(update).then(() => {
+            dispatch(editExpense(id,update));
+        });
+    };
+};

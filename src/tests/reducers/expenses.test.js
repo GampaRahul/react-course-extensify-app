@@ -1,6 +1,8 @@
 import expeseReduser from '../../reducers/expenses';
 import expenses from '../fixtures/expenses'
 import moment from 'moment';
+import expenceReduser from '../../reducers/expenses';
+
 
 test('should set default state', () => {
     const state = expeseReduser(undefined,{type:"@@INIT"});
@@ -69,3 +71,12 @@ test('should not edit an expense of given id not found',() => {
     const state = expeseReduser(expenses,action);
     expect(state).toEqual(state);
 });
+
+test('should set expenses', () =>{
+    const action = {
+        'type': 'SET_EXPENSES',
+        expenses: [expenses[1]]
+    }
+    const state = expenceReduser(expenses, action);
+    expect(state).toEqual([expenses[1]]);
+}); 

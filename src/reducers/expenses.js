@@ -20,6 +20,9 @@ const expenceReduser = (state = expenceReduserDefaultState, action) => {
                 }
                 else return expence
             });
+        case 'SET_EXPENSES':{
+           return action.expenses; 
+        }
         default:
             return state;
     }
